@@ -58,6 +58,14 @@ const AvailableMeals = () => {
         );
     }
 
+    if (meals.length === 0) {
+        return (
+            <section className={classes.MealsError}>
+                <p>No meals found.</p>
+            </section>
+        );
+    }
+
     const mealsList = meals.map((meal) => (
         <MealItem
             id={meal.id}
