@@ -67,13 +67,14 @@ const AvailableMeals = () => {
     }
 
     const mealsList = meals.map((meal) => (
-        <MealItem
-            id={meal.id}
-            key={meal.id}
-            name={meal.name}
-            description={meal.description}
-            price={meal.price}
-        />
+        <Card key={meal.id}>
+            <MealItem
+                id={meal.id}
+                name={meal.name}
+                description={meal.description}
+                price={meal.price}
+            />
+        </Card>
     ));
 
     return (

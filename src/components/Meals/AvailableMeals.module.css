@@ -1,22 +1,29 @@
-.meals {
+/* .meals {
     max-width: 60rem;
-    width: 90%;
+    width: 20%;
+    flex-direction: row;
     margin: 2rem auto;
     animation: meals-appear 1s ease-out forwards;
-    }
+    display: flex;
+    flex-wrap: wrap;
+
+    } */
     
     .meals ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 2rem;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     }
     
     .meals ul li {
-    display: inline-block;
-    margin-right: 1rem;
+    flex-basis: calc(33.33% - 1rem);
+    margin-bottom: 2rem;
     border: 1px solid orangered;
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 2rem;
+    border-radius: 15px;
     }
     
     .MealsLoading {
