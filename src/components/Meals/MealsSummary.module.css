@@ -17,6 +17,33 @@
     margin-top: 0;
 }
 
-.summary p{
-    
-}
+/* MealsSummary.module.css */
+
+.summary {
+    /* Your existing styles for the summary section */
+  
+    /* Add or modify the following styles */
+  }
+  
+  .summary ul {
+    /* Your existing styles for the search results list */
+  
+    /* Add or modify the following styles */
+  }
+  
+  .summary ul li {
+    /* Your existing styles for each search result item */
+  
+    /* Add or modify the following styles */
+  }
+  
+  .summary ul li img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 25px;
+    /* Add or modify any other image styles as needed */
+  }
+  
+

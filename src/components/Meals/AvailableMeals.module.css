@@ -1,48 +1,96 @@
-/* .meals {
-    max-width: 60rem;
-    width: 20%;
-    flex-direction: row;
-    margin: 2rem auto;
-    animation: meals-appear 1s ease-out forwards;
-    display: flex;
-    flex-wrap: wrap;
+.meals {
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
 
-    } */
-    
-    .meals ul {
-    list-style: none;
-    margin-bottom: 2rem;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    }
-    
-    .meals ul li {
-    flex-basis: calc(33.33% - 1rem);
-    margin-bottom: 2rem;
-    border: 1px solid orangered;
-    padding: 2rem;
-    border-radius: 15px;
-    }
-    
-    .MealsLoading {
-    text-align: center;
-    color: black;
-    }
-    
-    .MealsError {
-    text-align: center;
-    color: red;
-    }
-    
-    @keyframes meals-appear {
-    from {
+.meals ul {
+  list-style: none;
+  margin-bottom: 2rem;
+  padding: 10px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-content: center;
+  flex-direction: row; 
+}
+
+.meals ul li {
+  flex-basis: 1%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.meals ul li img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.meals ul li:hover {
+  transform: translateY(-5px);
+}
+
+.mealsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2rem;
+}
+
+.mealsList .mealDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.MealsLoading {
+  text-align: center;
+  color: black;
+}
+
+.MealsError {
+  text-align: center;
+  color: red;
+}
+
+@keyframes meals-appear {
+  from {
     opacity: 0;
     transform: translateY(3rem);
-    }
-    to {
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
-    }
-    }
+  }
+}
+
+@media (max-width: 768px) {
+  .meals ul li {
+    flex-basis: 48%;
+  }
+}
+
+@media (max-width: 576px) {
+  .meals ul li {
+    flex-basis: 100%;
+  }
+}
+
+     
+      
+      
+      
+      
+      
+      
+      

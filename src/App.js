@@ -25,7 +25,9 @@ function App() {
             </main>
             <Footer/>
             
+            
         </CartProvider>
+        
     );
 }
 

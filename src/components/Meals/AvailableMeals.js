@@ -5,85 +5,95 @@ import MealItem from "./Mealitem/MealItem";
 import classes from "./AvailableMeals.module.css";
 
 const AvailableMeals = () => {
-    const [meals, setMeals] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [httpError, setHttpError] = useState();
+  const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
 
-    useEffect(() => {
-        const fetchMeals = async () => {
-            const response = await fetch(
-                "https://react-http-eef0d-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json"
-            );
+  useEffect(() => {
+    const fetchMeals = async () => {
+      try {
+        const response = await fetch(
+          "https://food-delivery-app-qnhr.onrender.com/menuItems"
+        );
 
-            if (!response.ok) {
-                throw new Error("Something went wrong!");
+        if (!response.ok) {
+          throw new Error("Something went wrong!");
+        }
+
+        const responseData = await response.json();
+        const loadedMeals = [];
+
+        await Promise.all(
+          Object.entries(responseData).map(async ([key, data]) => {
+            for (const obj of data) {
+              const meal = {
+                id: key,
+                name: obj.name,
+                description: obj.description,
+                price: obj.price,
+                image: obj.image // add the image URL
+              };
+              loadedMeals.push(meal);
             }
-
-            const responseData = await response.json();
-
-            const loadedMeals = [];
-
-            for (const key in responseData) {
-                loadedMeals.push({
-                    id: key,
-                    name: responseData[key].name,
-                    description: responseData[key].description,
-                    price: responseData[key].price,
-                });
-            }
-
-            setMeals(loadedMeals);
-            setIsLoading(false);
-        };
-
-        fetchMeals().catch((error) => {
-            setIsLoading(false);
-            setHttpError(error.message);
-        });
-    }, []);
-
-    if (isLoading) {
-        return (
-            <section className={classes.MealsLoading}>
-                <p>Loading...</p>
-            </section>
+          })
         );
-    }
 
-    if (httpError) {
-        return (
-            <section className={classes.MealsError}>
-                <p>{httpError}</p>
-            </section>
-        );
-    }
+        setMeals(loadedMeals);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setHttpError(error.message);
+      }
+    };
 
-    if (meals.length === 0) {
-        return (
-            <section className={classes.MealsError}>
-                <p>No meals found.</p>
-            </section>
-        );
-    }
+    fetchMeals();
+  }, []);
 
-    const mealsList = meals.map((meal) => (
-        <Card key={meal.id}>
-            <MealItem
-                id={meal.id}
-                name={meal.name}
-                description={meal.description}
-                price={meal.price}
-            />
-        </Card>
-    ));
-
+  if (isLoading) {
     return (
-        <section className={classes.meals}>
-            <Card>
-                <ul>{mealsList}</ul>
-            </Card>
-        </section>
+      <section className={classes.MealsLoading}>
+        <p>Loading...</p>
+      </section>
     );
+  }
+
+  if (httpError) {
+    return (
+      <section className={classes.MealsError}>
+        <p>{httpError}</p>
+      </section>
+    );
+  }
+
+  if (meals.length === 0) {
+    return (
+      <section className={classes.MealsError}>
+        <p>No meals found.</p>
+      </section>
+    );
+  }
+
+  const mealsList = meals.map((meal) => (
+    <Card key={meal.id}>
+      <MealItem
+        id={meal.id}
+        name={meal.name.toUpperCase()} // Capitalize the entire name
+        description={meal.description}
+        price={meal.price}
+        image={meal.image}
+      />
+    </Card>
+  ));
+
+  return (
+    <section className={classes.meals}>
+      <Card>
+        <ul className={classes.mealsList}>{mealsList}</ul>
+      </Card>
+    </section>
+  );
 };
 
 export default AvailableMeals;
+
+
