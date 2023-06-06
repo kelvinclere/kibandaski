@@ -24,7 +24,10 @@ function App() {
                 <Meals />
             </main>
             <Footer/>
+            
+            
         </CartProvider>
+        
     );
 }
 

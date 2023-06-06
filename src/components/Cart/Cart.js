@@ -14,7 +14,7 @@ const Cart = (props) => {
 
     const cartCtx = useContext(CartContext);
 
-    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+    const totalAmount = `Ksh${cartCtx.totalAmount}`;
     const hasItems = cartCtx.items.length > 0;
 
     const cartItemRemovehandler = (id) => {
@@ -32,7 +32,9 @@ const Cart = (props) => {
     const submitOrderHandler = async (userData) => {
         setIsSubmitting(true);
         await fetch(
-            "https://react-http-eef0d-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
+            "https://food-delivery-app-qnhr.onrender.com/menuItems",
+
+            // "https://react-http-eef0d-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
             {
                 method: "POST",
                 body: JSON.stringify({

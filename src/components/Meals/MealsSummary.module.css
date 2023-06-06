@@ -5,9 +5,9 @@
     margin: auto;
     margin-top: -10rem;
     position: relative;
-    background-color: #fb6108;
-    color: white;
-    border-radius: 40px;
+    background-color: rgba(120, 129, 211, 0.63);
+    color: black;
+    border-radius: 15px;
     padding: 1rem;
     box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
 }
@@ -16,3 +16,34 @@
     font-size: 2rem;
     margin-top: 0;
 }
+
+/* MealsSummary.module.css */
+
+.summary {
+    /* Your existing styles for the summary section */
+  
+    /* Add or modify the following styles */
+  }
+  
+  .summary ul {
+    /* Your existing styles for the search results list */
+  
+    /* Add or modify the following styles */
+  }
+  
+  .summary ul li {
+    /* Your existing styles for each search result item */
+  
+    /* Add or modify the following styles */
+  }
+  
+  .summary ul li img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 25px;
+    /* Add or modify any other image styles as needed */
+  }
+  
+
