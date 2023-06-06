@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
   bottom: 0;
   left: 0;
   width: 100%;
@@ -12,7 +12,7 @@
   padding: 1rem 10%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 10;
-}
+}*/
 
 .logo {
   width: 200px;
@@ -25,7 +25,7 @@
 .logo:hover {
   transform: rotate(360deg);
   transition: transform 0.3s ease-in-out;
-}
+}/*
 
 .playstore {
   width: 150px;
@@ -49,7 +49,78 @@
   #media {
     margin-right: 0;
   }
+} */
+
+
+.footer {
+  background-color: #f8f8f8;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.social {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  margin-right: 1rem;
+}
+
+.playstore {
+  width: 120px;
+  height: 40px;
+}
+
+#media img {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+#media img:last-child {
+  margin-right: 0;
+}
+
+h1,
+h3,
+a {
+  margin: 0;
+  color: #333333;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+a:hover {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social {
+    margin-bottom: 1rem;
+  }
+}
+
 
  
   
