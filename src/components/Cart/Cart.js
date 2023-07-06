@@ -31,32 +31,36 @@ const Cart = (props) => {
 
     const submitOrderHandler = async (userData) => {
         setIsSubmitting(true);
-        await fetch(
-            "https://food-delivery-app-qnhr.onrender.com/menuItems",
+        const response =
+            await fetch(
+                "https://food-delivery-app-qnhr.onrender.com/menuItems",
 
-            // "https://react-http-eef0d-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    user: userData,
-                    orderedItems: cartCtx.items,
-                }),
-            }
-        );
+                // "https://react-http-eef0d-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        user: userData,
+                        orderedItems: cartCtx.items,
+                    }),
+                }
+            );
+            console.log(response)
         setIsSubmitting(false);
         setDidSubmit(true);
         cartCtx.clearCart();
     };
 
+    console.log(cartCtx)
+
     const cartItems = (
         <ul className={classes["cart-items"]}>
-            {cartCtx.items.map((item) => (
+            {cartCtx.items.map((item, index) => (
                 <CartItem
-                    key={item.id}
+                    key={index}
                     name={item.name}
                     amount={item.totalAmount}
                     price={item.price}
-                    onRemove={cartItemRemovehandler.bind(null, item.id)}
+                    onRemove={cartItemRemovehandler.bind(null, item._id)}
                     onAdd={cartItemAddHandler.bind(null, item)}
                 />
             ))}
