@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "../UI/Card";
 import MealItem from "./Mealitem/MealItem";
-
 import classes from "./AvailableMeals.module.css";
+import { MdCached } from "react-icons/md";
+import { TailSpin } from "react-loader-spinner";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
@@ -22,6 +23,7 @@ const AvailableMeals = () => {
 
         const responseData = await response.json();
         const loadedMeals = [];
+        console.log(responseData)
 
         await Promise.all(
           Object.entries(responseData).map(async ([key, data]) => {
@@ -52,7 +54,7 @@ const AvailableMeals = () => {
   if (isLoading) {
     return (
       <section className={classes.MealsLoading}>
-        <p>Loading...</p>
+        <TailSpin color="#f1f1f1" height={50} width={50} />
       </section>
     );
   }
@@ -73,10 +75,10 @@ const AvailableMeals = () => {
     );
   }
 
-  const mealsList = meals.map((meal) => (
-    <Card key={meal.id}>
+  const mealsList = meals.map((meal, index) => (
+    <Card key={index}>
       <MealItem
-        id={meal.id}
+        id={meal._id}
         name={meal.name.toUpperCase()} // Capitalize the entire name
         description={meal.description}
         price={meal.price}
@@ -95,5 +97,8 @@ const AvailableMeals = () => {
 };
 
 export default AvailableMeals;
+
+
+
 
 

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Cart from "../Cart/Cart";
 
 import classes from "./Modal.module.css";
 
@@ -27,6 +28,10 @@ const Modal = (props) => {
             {ReactDOM.createPortal(
                 <ModalOverlay>{props.children}</ModalOverlay>,
                 portalElement
+            )}
+
+            {ReactDOM.render(
+                <Cart/>, document.getElementById("cart-root")
             )}
         </>
     );

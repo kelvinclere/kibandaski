@@ -4,12 +4,13 @@
 
 .form button {
     font: inherit;
+    font-size: small;
     cursor: pointer;
     background-color: #fb6108;
     border: 1px solid white;
     color: white;
-    padding: 0.25rem 2rem;
-    border-radius: 20px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
     font-weight: bold;
 }
 

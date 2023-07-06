@@ -15,27 +15,12 @@
   flex-direction: row; 
 }
 
-.meals ul li {
-  flex-basis: 1%;
-  max-width: 100%;
-  margin-bottom: 2rem;
-  padding: 2rem;
-  border-radius: 15px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-}
-
 .meals ul li img {
   max-width: 100%;
   height: auto;
   display: block;
   margin-bottom: 1rem;
   border-radius: 5px;
-}
-
-.meals ul li:hover {
-  transform: translateY(-5px);
 }
 
 .mealsList {
@@ -51,7 +36,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 
 .MealsLoading {
   text-align: center;

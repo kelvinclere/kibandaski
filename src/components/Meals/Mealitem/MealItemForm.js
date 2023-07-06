@@ -16,7 +16,7 @@ const MealItemForm = (props) => {
         if (
             enteredAmount.trim().length === 0 ||
             enteredAmountNumber < 1 ||
-            enteredAmountNumber > 5
+            enteredAmountNumber > 50
         ) {
             setAmountIsValid(false);
             return;
@@ -27,22 +27,25 @@ const MealItemForm = (props) => {
 
     return (
         <form className={classes.form} onSubmit={submitHandler}>
+          <div className={classes.inputContainer}>
             <Input
-                ref={amountInputRef}
-                label="Amount"
-                input={{
-                    id: "amount" + props.id,
-                    type: "number",
-                    min: "1",
-                    max: "5",
-                    step: "1",
-                    defaultValue: "1",
-                }}
+              ref={amountInputRef}
+              label="Quantity"
+              input={{
+                id: "amount" + props.id,
+                type: "number",
+                min: "1",
+                max: "50",
+                step: "1",
+                defaultValue: "1",
+              }}
             />
-            <button>+ Add</button>
-            {!amountIsValid && <p>Please enter a valid amount (1-5).</p>}
+            <button type="submit">ADD TO CART</button>
+          </div>
+          {!amountIsValid && <p>Please enter a valid amount (1-50).</p>}
         </form>
-    );
+      );
+      
 };
 
 export default MealItemForm;
