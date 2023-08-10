@@ -16,24 +16,16 @@ const ModalOverlay = (props) => {
     );
 };
 
-const portalElement = document.getElementById("overlays");
-
 const Modal = (props) => {
-    return (
-        <>
-            {ReactDOM.createPortal(
-                <Backdrop onClose={props.onClose} />,
-                portalElement
-            )}
-            {ReactDOM.createPortal(
-                <ModalOverlay>{props.children}</ModalOverlay>,
-                portalElement
-            )}
+    const portalElement = document.getElementById("overlays");
 
-            {ReactDOM.render(
-                <Cart/>, document.getElementById("cart-root")
-            )}
-        </>
+    return ReactDOM.createPortal(
+        
+        <React.Fragment>
+            <Backdrop onClose={props.onClose} />
+            <ModalOverlay>{props.children}</ModalOverlay>
+        </React.Fragment>,
+        portalElement
     );
 };
 

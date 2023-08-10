@@ -83,6 +83,7 @@ const Cart = (props) => {
     const cartModalContent = (
         <>
             {cartItems}
+            
             <div className={classes.total}>
                 <span>Total Amount</span>
                 <span>{totalAmount}</span>
