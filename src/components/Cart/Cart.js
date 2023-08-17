@@ -15,6 +15,7 @@ const Cart = (props) => {
     const cartCtx = useContext(CartContext);
 
     const totalAmount = `Ksh${cartCtx.totalAmount}`;
+
     const hasItems = cartCtx.items.length > 0;
 
     const cartItemRemovehandler = (id) => {
@@ -58,6 +59,7 @@ const Cart = (props) => {
                 <CartItem
                     key={index}
                     name={item.name}
+                    image={item.image}
                     amount={item.totalAmount}
                     price={item.price}
                     onRemove={cartItemRemovehandler.bind(null, item._id)}
