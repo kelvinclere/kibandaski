@@ -23,8 +23,9 @@ const Cart = (props) => {
     };
 
     const cartItemAddHandler = (item) => {
-        cartCtx.addItem({ ...item, totalAmount: 1 });
+        cartCtx.addItem(item); // Assuming the addItem function handles item quantity internally
     };
+    
 
     const orderHandler = () => {
         setIsCheckout(true);
@@ -71,7 +72,10 @@ const Cart = (props) => {
 
     const modalActions = (
         <div className={classes.actions}>
-            <button className={classes["button--alt"]} onClick={props.onClose}>
+            <button className={classes["button--alt"]} onClick={() => {
+                props.onClose();
+                
+            }}>
                 Close
             </button>
             {hasItems && (
@@ -81,6 +85,7 @@ const Cart = (props) => {
             )}
         </div>
     );
+    
 
     const cartModalContent = (
         <>

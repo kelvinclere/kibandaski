@@ -17,6 +17,8 @@ function App() {
     };
 
     return (
+
+
         <CartProvider>
             {cartIsShown && <Cart onClose={hideCartHandler} />}
             <Header onShowCart={showCartHandler} />
@@ -33,3 +35,6 @@ function App() {
 }
 
 export default App;
+
+
+
