@@ -1,5 +1,5 @@
 import mealsImage from "../../assets/meal2.jpg";
-import logoImage from "../../assets/logo.png"
+import logoImage from "../../assets/kyakula.jpeg"
 
 import HeaderCartButton from "./HeaderCartButton";
 import classes from "./Header.module.css";

@@ -1,6 +1,6 @@
 import classes from "./Footer.module.css";
 import mealsImage from "../../assets/google.jpeg";
-import logoImage from "../../assets/logo1.jpeg";
+import logoImage from "../../assets/kyakula.jpeg";
 import facebookImage from "../../assets/facebook.png";  // import the Facebook icon image
 import twitterImage from "../../assets/twitter.png"
 import emailImage from "../../assets/gmail.png"

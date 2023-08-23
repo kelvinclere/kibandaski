@@ -23,7 +23,7 @@ const Cart = (props) => {
     };
 
     const cartItemAddHandler = (item) => {
-        cartCtx.addItem(item); // Assuming the addItem function handles item quantity internally
+        cartCtx.addItem(item); 
     };
     
 
@@ -37,7 +37,8 @@ const Cart = (props) => {
             await fetch(
                 "https://food-delivery-app-qnhr.onrender.com/menuItems",
 
-                // "https://react-http-eef0d-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
+                // "https://food-delivery-app-qnhr.onrender.com/menuItems",
+
                 {
                     method: "POST",
                     body: JSON.stringify({
@@ -58,7 +59,7 @@ const Cart = (props) => {
         <ul className={classes["cart-items"]}>
             {cartCtx.items.map((item, index) => (
                 <CartItem
-                    key={index}
+                    key={item._id}
                     name={item.name}
                     image={item.image}
                     amount={item.totalAmount}
