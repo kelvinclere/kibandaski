@@ -1,4 +1,4 @@
-.header {
+/* .header {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,11 +12,49 @@
     padding: 0 10%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 10;
+  } */
+
+  /* Header.module.css */
+
+
+.loginButton {
+  margin-right: 20px;
+}
+
+.loginButton a {
+  text-decoration: none;
+  color: #fb6108;
+  font-weight: bold;
+  font-size: 20px;
+  width: auto;
+  border-radius: 10px;
+
+}
+
+.loginButton a:hover {
+  color: #d11818;
+}
+
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    color: #fb6108;
+    background-color: rgba(255, 255, 255, 0.315);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 10;
   }
 
   .name {
     font-size: 2rem;
-    color: #d11818;
+    color: #fb6108;
     margin: 0;
     padding: 0;
 }
@@ -33,6 +71,25 @@
     height: 100%;
     object-fit: cover;
     transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+  }
+
+  .loginButton {
+    margin-right: 10px;
+    color: white;
+    border-radius: 7px;
+    padding: auto;
+    
+  }
+
+  .loginButton[type="submit"] {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #fb6108;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
   }
   
   .logo {
