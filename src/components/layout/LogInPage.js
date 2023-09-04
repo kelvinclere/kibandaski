@@ -15,7 +15,7 @@ const LoginPage = () => {
   return (
     <div className={styles["login-container"]}>
       <div className={styles["login-form"]}> 
-        <h1>Login Page</h1>
+        <h1>Enter Your Login Details</h1>
         <form onSubmit={submitThis}>
           <div>
             <label htmlFor="email">Email</label>
