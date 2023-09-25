@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './LogInPage.module.css';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,11 @@ const LoginPage = () => {
     e.preventDefault();
     const info = { email: email, passw: passw };
     setDataInput([info]);
+  };
+
+  const handleSignUpClick = () => {
+    // Add code here to handle the sign-up action
+    console.log("Sign Up text clicked");
   };
 
   return (
@@ -27,12 +33,18 @@ const LoginPage = () => {
           </div>
           <button type="submit">Login</button>
         </form>
+        <div className={styles["signup-text"]}>
+        <p>Don't have an account? <Link to="/signup">Click here to SignUp</Link></p>
+        </div>
       </div>
     </div>
   );
 };
 
 export default LoginPage;
+
+
+
 
 
 

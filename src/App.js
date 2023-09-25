@@ -5,7 +5,8 @@ import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import LogInPage from "./components/layout/LogInPage";
 import Footer from "./components/layout/Footer";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import SignUpPage from "./components/layout/SignUpPage";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -20,26 +21,27 @@ function App() {
 
   return (
     <Router>
-      <Switch>
-        <Route path="/login" component={LogInPage} />
-        <Route path="/" exact>
-          <div>
-            {cartIsShown && <Cart onClose={hideCartHandler} />}
-            <Header onShowCart={showCartHandler} />
+      <div>
+        {cartIsShown && <Cart onClose={hideCartHandler} />}
+        <Header onShowCart={showCartHandler} />
 
-            <main>
-              <Meals />
-            </main>
+        <main>
+          <Switch>
+            
+            <Route path="/login" component={LogInPage} />
+            <Route path="/signup" component={SignUpPage} />
+            <Route path="/" exact component={Meals} />
+          </Switch>
+        </main>
 
-            <Footer />
-          </div>
-        </Route>
-      </Switch>
+        <Footer />
+      </div>
     </Router>
   );
 }
 
 export default App;
+
 
 
 
