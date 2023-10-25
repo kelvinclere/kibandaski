@@ -16,6 +16,6 @@
 
 .form button:hover,
 .form button:active {
-    background-color: #641e03;
-    border-color: #641e03;
+    background-color: rgba(120, 129, 211, 0.63);
+    border-color:rgba(120, 129, 211, 0.63) ;
 }
