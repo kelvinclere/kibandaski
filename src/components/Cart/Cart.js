@@ -13,6 +13,7 @@ const Cart = (props) => {
     const cartCtx = useContext(CartContext);
 
     const totalAmount = `Ksh${cartCtx.totalAmount}`;
+    console.log("Cart Items: ", cartCtx.items);
 
     const hasItems = cartCtx.items.length > 0;
 
