@@ -8,11 +8,51 @@ const SignUpPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validate and handle the sign-up data here
-    // You can add your validation logic and API requests
+
+    // Client-side validation
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    // Basic validation - check for empty fields (you can add more complex validation as needed)
+    if (!name || !email || !phoneNumber || !password || !confirmPassword) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    // Prepare the data for the API request
+    const userData = {
+      name,
+      email,
+      phoneNumber,
+      password
+    };
+
+    try {
+      // Make a POST request to your sign-up API endpoint
+      const response = await fetch('https://food-delivery-app-qnhr.onrender.com/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Sign-up failed');
+      }
+
+      // Handle a successful sign-up
+      // Redirect to a new page, show a success message, etc.
+      console.log('Sign-up successful');
+    } catch (error) {
+      setError('Sign-up failed. Please try again.');
+    }
   };
 
   return (
@@ -82,3 +122,4 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
+
