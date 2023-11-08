@@ -1,41 +1,32 @@
 import React, { useState } from 'react';
 import styles from './LogInPage.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isRegistered, setIsRegistered] = useState(false);
+
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Client-side validation
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    // Basic validation - check for empty fields (you can add more complex validation as needed)
-    if (!name || !email || !phoneNumber || !password || !confirmPassword) {
+    if (!name || !email || !phoneNumber) {
       setError("Please fill in all fields");
       return;
     }
 
-    // Prepare the data for the API request
     const userData = {
       name,
       email,
       phoneNumber,
-      password
     };
 
     try {
-      // Make a POST request to your sign-up API endpoint
-      const response = await fetch('https://food-delivery-app-qnhr.onrender.com/auth/register', {
+      const response = await fetch('https://food-delivery-app-qnhr.onrender.com/sms/sendOTP', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,22 +34,27 @@ const SignUpPage = () => {
         body: JSON.stringify(userData),
       });
 
-      if (!response.ok) {
-        throw new Error('Sign-up failed');
+      if (response.ok) {
+        setIsRegistered(true);
+        setError(null); // Reset any previous error message on successful registration
+        history.push('/Otpinput'); // Redirect to the OTP verification page upon successful registration
+      } else {
+        throw new Error('Sending OTP failed');
       }
-
-      // Handle a successful sign-up
-      // Redirect to a new page, show a success message, etc.
-      console.log('Sign-up successful');
     } catch (error) {
-      setError('Sign-up failed. Please try again.');
+      setIsRegistered(false);
+      setError('Sending OTP failed. Please try again.');
     }
   };
 
   return (
     <div className={styles["login-container"]}>
       <div className={styles["login-form"]}>
-        <h1>Create an Account</h1>
+        <h1>Create Account</h1>
+        {isRegistered && (
+          <p>Registration successful! Please verify OTP in <Link to="/Otpinput">OTP Verification</Link>.</p>
+        )}
+        {error && <p className={styles.error}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name</label>
@@ -90,36 +86,18 @@ const SignUpPage = () => {
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit">Sign Up</button>
+          <button type="submit">Next</button>
         </form>
         <div className={styles["signup-text"]}>
-        <p>Already have an account? <Link to="/login">Login</Link></p>
+          <p>Already have an account? <Link to="/login">Login</Link></p>
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 };
 
 export default SignUpPage;
+
+
+
 
