@@ -5,8 +5,9 @@ import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import LogInPage from "./components/layout/LogInPage";
 import Footer from "./components/layout/Footer";
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import SignUpPage from "./components/layout/SignUpPage";
+import Otpinput from "./components/layout/Otpinput";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -27,9 +28,9 @@ function App() {
 
         <main>
           <Switch>
-            
             <Route path="/login" component={LogInPage} />
             <Route path="/signup" component={SignUpPage} />
+            <Route path="/otpinput" component={Otpinput} /> {/* Add this line */}
             <Route path="/" exact component={Meals} />
           </Switch>
         </main>

@@ -1,10 +1,12 @@
 import React, { Component, ReactDOM } from 'react';
 import Button from 'react-bootstrap/Button';
+import './Otpinput.css';
+
 class Otpinput extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { value: '', otp1: "", otp2: "", otp3: "", otp4: "", otp5: "", disable: true };
+    this.state = { value: '', otp1: "", otp2: "", otp3: "", otp4: "", otp5: "", otp6: "", disable: true };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -34,7 +36,7 @@ class Otpinput extends React.Component {
       console.log("next");
      
         const next = elmnt.target.tabIndex;
-        if (next < 5) {
+        if (next < 6) {
           elmnt.target.form.elements[next].focus()
         }
     }
@@ -42,8 +44,9 @@ class Otpinput extends React.Component {
   }
 
   render() {
-    return (
+    return ( 
       <form onSubmit={this.handleSubmit}>
+        <p>Enter the OTP code sent to your number and click verift to continue.</p>
         <div className="otpContainer">
 
           <input
@@ -96,9 +99,20 @@ class Otpinput extends React.Component {
             onChange={e => this.handleChange("otp5", e)}
             tabIndex="5" maxLength="1" onKeyUp={e => this.inputfocus(e)}
           />
+
+<input
+            name="otp6"
+            type="text"
+            autoComplete="off"
+            className="otpInput"
+            value={this.state.otp6}
+            onChange={e => this.handleChange("otp6", e)}
+            tabIndex="6" maxLength="1" onKeyUp={e => this.inputfocus(e)}
+          />
         </div>
+
         <Button className="primary" type="submit">
-          Submit
+          verify
         </Button>
       </form>
     );
