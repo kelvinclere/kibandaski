@@ -1,52 +1,87 @@
-import React, { Component, ReactDOM } from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './Otpinput.css';
+import axios from 'axios';
 
-class Otpinput extends React.Component {
-
+class Otpinput extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: '', otp1: "", otp2: "", otp3: "", otp4: "", otp5: "", otp6: "", disable: true };
+    this.state = {
+      otp1: '',
+      otp2: '',
+      otp3: '',
+      otp4: '',
+      otp5: '',
+      otp6: '',
+      error: '', // New state for error messages
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   handleChange(value1, event) {
-
     this.setState({ [value1]: event.target.value });
   }
 
-  handleSubmit(event) {
 
-    const data = new FormData(event.target);
-    console.log(this.state);
+  handleSubmit(event) {
     event.preventDefault();
+  
+    // Reset error state before verifying OTP
+    this.setState({ error: '' });
+  
+    // Perform OTP verification
+    this.verifyOTP().then((isVerified) => {
+      if (isVerified) {
+        console.log('OTP verified successfully');
+        // Navigate to the login page
+        this.props.history.push('/login');
+      } else {
+        console.log('OTP verification failed');
+        // Handle OTP verification failure (error message will be displayed)
+        this.setState({ error: 'OTP verification failed. Please try again.' });
+      }
+    });
   }
 
-  inputfocus = (elmnt) => {
-    if (elmnt.key === "Delete" || elmnt.key === "Backspace") {
+    // Perform OTP verification by making an HTTP request to the server
+    verifyOTP() {
+      const { otp1, otp2, otp3, otp4, otp5, otp6 } = this.state;
+      const otp = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+    
+      // Use the provided endpoint for OTP verification
+      const apiUrl = 'https://food-delivery-app-qnhr.onrender.com/sms/confirmOTP';
+    
+      // Make a POST request to verify the OTP
+      return axios.post(apiUrl, { otp })
+        .then(response => {
+          // Check the response for success
+          return response.data.success === true;
+        })
+        .catch(error => {
+          console.error('OTP verification error:', error);
+          return false; // Assume OTP verification failed on error
+        });
+    }
+
+  inputFocus = (elmnt) => {
+    if (elmnt.key === 'Delete' || elmnt.key === 'Backspace') {
       const next = elmnt.target.tabIndex - 2;
       if (next > -1) {
-
-        elmnt.target.form.elements[next].focus()
+        elmnt.target.form.elements[next].focus();
+      }
+    } else {
+      const next = elmnt.target.tabIndex;
+      if (next < 6) {
+        elmnt.target.form.elements[next].focus();
       }
     }
-    else {
-      console.log("next");
-     
-        const next = elmnt.target.tabIndex;
-        if (next < 6) {
-          elmnt.target.form.elements[next].focus()
-        }
-    }
-
-  }
-
+  };
   render() {
     return ( 
       <form onSubmit={this.handleSubmit}>
-        <p>Enter the OTP code sent to your number and click verift to continue.</p>
+        <p>Enter the OTP code sent to your number and click verify to continue.</p>
         <div className="otpContainer">
 
           <input
