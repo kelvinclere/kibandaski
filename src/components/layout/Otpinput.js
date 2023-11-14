@@ -14,7 +14,7 @@ class Otpinput extends Component {
       otp4: '',
       otp5: '',
       otp6: '',
-      error: '', // New state for error messages
+      error: 'OTP verification failed', 
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +35,7 @@ class Otpinput extends Component {
     this.verifyOTP().then((isVerified) => {
       if (isVerified) {
         console.log('OTP verified successfully');
-        // Navigate to the login page
+        
         this.props.history.push('/login');
       } else {
         console.log('OTP verification failed');

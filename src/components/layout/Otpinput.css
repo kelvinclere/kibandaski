@@ -24,17 +24,18 @@
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    display: inline;
+    display: flex; /* Change to block */
+    margin: auto; /* Add margin to center */
   }
-
-  p{
+  
+  p {
     font-size: large;
-    font-style:italic;
+    font-style: italic;
     text-align: center;
-    
   }
   
   .primary:hover {
     background-color: #aca2e4;
   }
+  
   
