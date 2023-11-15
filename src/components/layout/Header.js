@@ -1,4 +1,4 @@
-import mealsImage from "../../assets/meal2.jpg";
+// import mealsImage from "../../assets/meal2.jpg";
 import logoImage from "../../assets/Mautamu 5.png"
 import { Link } from 'react-router-dom';
 import HeaderCartButton from "./HeaderCartButton";
@@ -15,9 +15,9 @@ const Header = (props) => {
                     <Link to="/login">Login</Link>
                 </div>
             </header>
-            <div className={classes["main-image"]}>
+            {/* <div className={classes["main-image"]}>
                 <img src={mealsImage} alt="A table full of delicious food!" />
-            </div>
+            </div> */}
         </>
     );
 };

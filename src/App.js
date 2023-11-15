@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
@@ -7,7 +8,7 @@ import LogInPage from "./components/layout/LogInPage";
 import Footer from "./components/layout/Footer";
 import SignUpPage from "./components/layout/SignUpPage";
 import Otpinput from "./components/layout/Otpinput";
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import StartPage from "./components/layout/StartPage"; // Import the StartPage component
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -30,8 +31,9 @@ function App() {
           <Switch>
             <Route path="/login" component={LogInPage} />
             <Route path="/signup" component={SignUpPage} />
-            <Route path="/otpinput" component={Otpinput} /> {/* Add this line */}
+            <Route path="/otpinput" component={Otpinput} />
             <Route path="/" exact component={Meals} />
+            <Route path="/" component={StartPage} />
           </Switch>
         </main>
 
@@ -42,6 +44,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

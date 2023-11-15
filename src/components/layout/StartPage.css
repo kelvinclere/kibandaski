@@ -1,0 +1,46 @@
+.start-page-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* background-color: rgba(120, 129, 211, 0.63); */
+    background-color: #FFA500;
+    margin-top: 80px;
+    /* transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem); */
+  }
+  
+  #main {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+    
+  }
+
+  /* StartPage.css */
+.start-page-container {
+    text-align: center; /* Center the content */
+  }
+  
+  .images-row {
+    display: flex;
+    justify-content:space-between; /* Adjust this to control spacing between images */
+    margin-top:20px; /* Add some margin for spacing */
+  }
+  
+  
+  .get-started-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #fb6108;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .get-started-btn:hover {
+    background-color: #0056b3;
+  }
+  
