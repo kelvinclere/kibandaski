@@ -44,3 +44,37 @@
     background-color: #0056b3;
   }
   
+  /* StartPage.css */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  
+  .start-page-container {
+    text-align: center;
+  }
+  
+  #main {
+    animation: fadeIn 3s ease-out infinite; /* Adjust the duration and easing function as needed */
+  }
+  
+  .get-started-btn {
+    margin-top: 20px;
+  }
+  
+  .images-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
