@@ -6,13 +6,13 @@
     justify-content: center;
     height: 100%;
     /* background-color: rgba(120, 129, 211, 0.63); */
-    background-color: #FFA500;
+    background-color: 	#fff;
     /* margin-top: 80px; */
     /* transform: rotateZ(5deg) translateY(-4rem) translateX(-1rem); */
   }
   
   #main {
-    max-width: 50%;
+    max-width: 40%;
     height: auto;
     margin-top: 80px;
     
@@ -84,7 +84,17 @@
     justify-content: space-between;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    
-    
+  }
+  #down{
+    font-size: 25px;
+    font-style: normal;
+  }
+
+  #downtext{
+    font-size: 50px;
+  }
+
+  #playstore{
+    margin-bottom: 50px;
   }
 

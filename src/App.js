@@ -26,14 +26,14 @@ function App() {
       <div>
         {cartIsShown && <Cart onClose={hideCartHandler} />}
         <Header onShowCart={showCartHandler} />
-
         <main>
           <Switch>
+          <Route path="/" component={StartPage} />
             <Route path="/login" component={LogInPage} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/otpinput" component={Otpinput} />
-            <Route path="/" exact component={Meals} />
-            <Route path="/" component={StartPage} />
+            <Route path="/meals" exact component={Meals} />
+            {/* <Route path="/" component={StartPage} /> */}
           </Switch>
         </main>
 
