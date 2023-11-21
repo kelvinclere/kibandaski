@@ -1,100 +1,89 @@
 .start-page-container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    /* background-color: rgba(120, 129, 211, 0.63); */
-    background-color: 	#fff;
-    /* margin-top: 80px; */
-    /* transform: rotateZ(5deg) translateY(-4rem) translateX(-1rem); */
-  }
-  
-  #main {
-    max-width: 40%;
-    height: auto;
-    margin-top: 80px;
-    
-  }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+}
 
-  /* StartPage.css */
-.start-page-container {
-    text-align: center; /* Center the content */
-  }
-  
-  .images-row {
-    display: flex;
-    justify-content:space-between; /* Adjust this to control spacing between images */
-    margin-top:20px; /* Add some margin for spacing */
-  }
-  
-  
-  .get-started-btn {
-    padding: 15px 30px;
-    font-size: 18px;
-    background-color: #fb6108;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .get-started-btn:hover {
-    background-color: rgba(120, 129, 211, 0.63);;
-  }
-  
- 
+#main {
+  max-width: 100%; /* Adjust the maximum width of the image */
+  height: auto;
+  margin-top: 20px; /* Reduce margin for smaller screens */
+  animation: fadeIn 6s ease-in-out infinite;
+}
+
+.images-row {
+  display: flex;
+  flex-direction:row; /* Stack images vertically on smaller screens */
+  gap: 20px; /* Add some vertical spacing between images */
+  margin-top: 20px;
+}
+
+.get-started-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #fb6108;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.get-started-btn:hover {
+  background-color: rgba(120, 129, 211, 0.63);
+}
+
 @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.9);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  .start-page-container {
-    text-align: center;
+  50% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+p {
+  font-size: 2em; /* Use em units for font size for better responsiveness */
+  margin-top: 10px; /* Adjust spacing for smaller screens */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#down {
+  font-size: 1.5em;
+  font-style: normal;
+}
+
+#downtext {
+  font-size: 3em;
+}
+
+#playstore {
+  margin-bottom: 20px; /* Reduce margin for smaller screens */
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
   #main {
-    animation: fadeIn 6s ease-in-out infinite; /* Adjust the duration and easing function as needed */
+    max-width: 100%;
   }
-  
-  .get-started-btn {
-    margin-top: 20px;
-  }
-  
+
   .images-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: column;
   }
 
-  p{
-    font-size: 30px;
-    margin-top: 5px;
-    justify-content: space-between;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  #playstore {
+    margin-bottom: 10px;
   }
-  #down{
-    font-size: 25px;
-    font-style: normal;
-  }
-
-  #downtext{
-    font-size: 50px;
-  }
-
-  #playstore{
-    margin-bottom: 50px;
-  }
+}
 

@@ -50,7 +50,6 @@ class Otpinput extends Component {
       const { otp1, otp2, otp3, otp4, otp5, otp6 } = this.state;
       const otp = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
     
-      // Use the provided endpoint for OTP verification
       const apiUrl = 'https://food-delivery-app-qnhr.onrender.com/sms/confirmOTP';
     
       // Make a POST request to verify the OTP
