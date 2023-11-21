@@ -1,10 +1,12 @@
 // StartPage.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'; // Import useHistory hook
 import './StartPage.css';
 import ImageComponent from './Images';
 
 const StartPage = () => {
+  const history = useHistory(); // Get the history object
+
   const imagePath1 = require('../../assets/Mautamu 5.png');
   const imagePath2 = require('../../assets/food5a.png');
   const imagePath3 = require('../../assets/liquor3a.png');
@@ -12,15 +14,20 @@ const StartPage = () => {
   const imagePath5 = require('../../assets/google.jpeg');
   const imagePath6 = require('../../assets/download-app-logo.webp');
 
+  const handleGetStarted = () => {
+    // Navigate to the "/meals" route
+    history.push('/meals');
+  };
+
   return (
     <div className="start-page-container">
       <img id="main" src={imagePath1} alt="Welcome Image" />
-      <Link to="/meals"> {/* Use Link to navigate to the Meals page */}
-        <button className="get-started-btn">Get Started</button>
-      </Link>
+      <button className="get-started-btn" onClick={handleGetStarted}>
+        Get Started
+      </button>
 
       <div className="images-row">
-        <div>
+      <div>
           <ImageComponent src={imagePath2} alt="Image 2" />
           <p>Your favourite foods</p>
         </div>
@@ -42,6 +49,7 @@ const StartPage = () => {
 };
 
 export default StartPage;
+
 
 
 

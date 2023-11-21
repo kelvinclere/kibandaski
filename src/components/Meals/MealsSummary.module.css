@@ -1,10 +1,13 @@
 .summary {
     text-align: center;
+    display: flex;
+    flex-direction: column;
     max-width: 45rem;
     width: 90%;
     margin: auto;
     margin-top: -10rem;
     position: relative;
+    align-items: center;
     background-color: rgba(120, 129, 211, 0.63);
     color: black;
     border-radius: 15px;

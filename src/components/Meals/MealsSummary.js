@@ -1,8 +1,9 @@
 import { useState } from "react";
 import classes from "./MealsSummary.module.css";
 import SearchBar from "../layout/SearchBar";
+import HeaderCartButton from "../layout/HeaderCartButton";
 
-const MealsSummary = () => {
+const MealsSummary = (props) => { // Pass the props parameter
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -39,6 +40,7 @@ const MealsSummary = () => {
 
   return (
     <section className={classes.summary}>
+      <HeaderCartButton onClick={props.onShowCart} /> {/* Add the cart button here */}
       <h2>Delicious Food, Delivered To Your Doorstep</h2>
       <p>
         Choose your favorite meal from our broad selection of available meals
@@ -69,6 +71,7 @@ const MealsSummary = () => {
 };
 
 export default MealsSummary;
+
 
 
 
