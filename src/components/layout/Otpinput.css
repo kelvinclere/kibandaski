@@ -1,0 +1,45 @@
+
+.otpContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  flex-direction:row;
+  
+}
+
+.otpInput {
+  font-size: 10px;
+  text-align: center;
+  margin: 0 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin: auto; /* Center the button */
+}
+
+p {
+  font-style: italic;
+  text-align: center;
+}
+
+.primary:hover {
+  background-color: #aca2e4;
+}
+
+  
+  

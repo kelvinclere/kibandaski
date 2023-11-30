@@ -1,0 +1,12 @@
+/* ImageComponent.css */
+.image-container {
+    margin: 70px; /* Add some margin for spacing */
+  }
+  
+  .image-container img {
+    width: 250px;
+    height: 200px;
+    justify-content: space-around;
+    object-fit: cover; 
+  }
+  
