@@ -8,7 +8,8 @@ import LogInPage from "./components/layout/LogInPage";
 import Footer from "./components/layout/Footer";
 import SignUpPage from "./components/layout/SignUpPage";
 import Otpinput from "./components/layout/Otpinput";
-import StartPage from "./components/layout/StartPage"; // Import the StartPage component
+import StartPage from "./components/layout/StartPage"; 
+import PrivacyPolicy from "./components/layout/PrivacyPolicy";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -28,11 +29,12 @@ function App() {
         <Header onShowCart={showCartHandler} />
         <main>
           <Switch>
-          <Route path="/startpage" component={StartPage} />
-            <Route path="/meals" exact component={Meals} />
+          <Route path="/" exact component={StartPage} />
+            <Route path="/meals" component={Meals} />
             <Route path="/login" component={LogInPage} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/otpinput" component={Otpinput} />
+            <Route path="/privacy-policy" component={PrivacyPolicy} />
             
             
           </Switch>
