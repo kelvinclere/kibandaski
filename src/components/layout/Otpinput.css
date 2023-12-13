@@ -2,11 +2,11 @@
 .otpContainer {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
   width: 50%;
   align-items: center;
   text-align: center;
   flex-direction:row;
+  margin: auto;
   
 }
 
@@ -19,17 +19,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
   
 }
 
-.primary {
-  background-color: #007bff;
+#verify {
+  background-color: #fb6108;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   color: #fff;
   padding: 10px 20px;
   cursor: pointer;
-  border: none;
   border-radius: 5px;
   margin: auto; /* Center the button */
+}
+
+#verify:hover {
+  background-color: #0056b3;
 }
 
 p {

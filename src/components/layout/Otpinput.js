@@ -145,7 +145,7 @@ class Otpinput extends Component {
           />
         </div>
 
-        <Button className="primary" type="submit">
+        <Button id='verify' type="submit">
           verify
         </Button>
       </form>
